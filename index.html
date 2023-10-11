@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <div>
+      <input type="email" id="email" />
+      <button type="button" id="stripeTrigger">Stripe api request</button>
+    </div>
+
+    <script>
+      const button = document.getElementById("stripeTrigger");
+      const email = document.getElementById("email");
+
+      function handleRequest() {
+        axios
+          .post(
+            "http://localhost:3000/api/stripe",
+            {
+              email: email.value,
+            },
+            {
+              headers: {
+                Authorization: `Bearer sk_test_51NrPGIC1JzpCkXscdeQjqJj2zSf3lGVjWTiYK4rwFrDhqVdBZa3WBuZTwPo9DkuEiMYnac1B3dYlkGBqLUI2TAPF00NxhjZHAS`,
+              },
+            }
+          )
+          .then(function (response) {
+            window.location.href = response.data.url;
+            // do whatever you want if console is [object object] then stringify the response
+          });
+      }
+
+      function onClickHandler() {
+        alert("Button clicked!");
+        console.log("Hello world!!!");
+      }
+
+      button.addEventListener("click", handleRequest);
+    </script>
+  </body>
+</html>
