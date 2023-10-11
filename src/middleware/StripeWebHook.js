@@ -12,7 +12,7 @@ router.post("/api/webhook", async (req, res) => {
   try {
     // UI generated here
     console.log("[It worked]");
-    
+
     event = stripe.webhooks.constructEvent(
       req.body,
       signature,
