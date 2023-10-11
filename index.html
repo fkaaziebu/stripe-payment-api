@@ -18,7 +18,7 @@
 
       function handleRequest() {
         axios
-          .post("http://localhost:3000/api/stripe", {
+          .post("https://stripe-payment-api.onrender.com/api/stripe", {
             email: email.value,
           })
           .then(function (response) {
