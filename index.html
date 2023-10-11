@@ -19,7 +19,7 @@
       function handleRequest() {
         axios
           .post(
-            "http://localhost:3000/api/stripe",
+            "https://stripe-payment-api-bay.vercel.app/api/stripe",
             {
               email: email.value,
             },
