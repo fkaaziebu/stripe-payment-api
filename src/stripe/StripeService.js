@@ -2,8 +2,8 @@ const { stripe } = require("../config/stripe");
 
 const create = async (email) => {
   const stripeSession = await stripe.checkout.sessions.create({
-    success_url: "https://vpass-nextjs.vercel.app/",
-    cancel_url: "https://vpass-nextjs.vercel.app/",
+    success_url: "https://thegreenervitafoundation.netlify.app/",
+    cancel_url: "https://thegreenervitafoundation.netlify.app/",
     payment_method_types: ["card"],
     mode: "subscription",
     billing_address_collection: "auto",

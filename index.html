@@ -18,26 +18,13 @@
 
       function handleRequest() {
         axios
-          .post(
-            "https://stripe-payment-api-bay.vercel.app/api/stripe",
-            {
-              email: email.value,
-            },
-            {
-              headers: {
-                Authorization: `Bearer sk_test_51NrPGIC1JzpCkXscdeQjqJj2zSf3lGVjWTiYK4rwFrDhqVdBZa3WBuZTwPo9DkuEiMYnac1B3dYlkGBqLUI2TAPF00NxhjZHAS`,
-              },
-            }
-          )
+          .post("http://localhost:3000/api/stripe", {
+            email: email.value,
+          })
           .then(function (response) {
             window.location.href = response.data.url;
             // do whatever you want if console is [object object] then stringify the response
           });
-      }
-
-      function onClickHandler() {
-        alert("Button clicked!");
-        console.log("Hello world!!!");
       }
 
       button.addEventListener("click", handleRequest);
